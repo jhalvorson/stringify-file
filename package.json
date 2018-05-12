@@ -1,0 +1,32 @@
+{
+  "name": "stringify-file",
+  "version": "0.0.1",
+  "description": "JSON stringify a HTML file y'all",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhalvorson/stringify-file.git"
+  },
+  "keywords": [
+    "Stringify",
+    "JSON",
+    "Stringify",
+    "String",
+    "HTML"
+  ],
+  "author": "Jamie Halvorson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhalvorson/stringify-file/issues"
+  },
+  "homepage": "https://github.com/jhalvorson/stringify-file#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "fs": "0.0.1-security",
+    "inquirer": "^5.2.0",
+    "path": "^0.12.7"
+  }
+}
