@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
@@ -38,16 +39,23 @@ getFilePath = () => {
 }
 
 init = async () => {
-  // try {
-  const file = await getFilePath();
-  if (fileExists(file.file)) {
-    const fileArray = file.file.split('.');
-    log(chalk.green('Let\'s do this!'));
-    log(chalk(`We're going to convert ${chalk.underline.bold(file.file)} and create a new file called ${chalk.underline.bold(fileArray[0] + '-stringified.' + fileArray[1])}`));
-  };
-  // } catch {
-  //   console.log(chalk.red('Woops'));
-  // }
+  try {
+    const file = await getFilePath();
+    if (fileExists(file.file)) {
+      const fileArray = file.file.split('.');
+      log(chalk.green('Let\'s do this!'));
+      log(chalk(`We're going to convert ${chalk.underline.bold(file.file)} and create a new file called ${chalk.underline.bold(fileArray[0] + '-stringified.' + fileArray[1])}`));
+      const contents = await fs.readFileSync(file.file, 'utf8');
+      const string = await JSON.stringify(contents);
+
+      fs.writeFile(fileArray[0] + '-stringified.' + fileArray[1], string, (err) => {
+        if (err) log(chalk.red('Something wen\'t wrong!'));
+        log(chalk.green(`Successfully created ${chalk.underline.bold(fileArray[0] + '-stringified.' + fileArray[1])}`));
+      });
+    }
+  } catch (err) {
+    console.log(chalk.red('Something wen\'t wrong'));
+  }
 }
 
 // Let's do this

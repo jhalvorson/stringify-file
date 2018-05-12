@@ -17,6 +17,8 @@
     "String",
     "HTML"
   ],
+  "preferGlobal": true,
+  "bin": "./index.js",
   "author": "Jamie Halvorson",
   "license": "ISC",
   "bugs": {
